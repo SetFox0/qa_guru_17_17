@@ -1,7 +1,7 @@
 import json
 import requests
 from jsonschema import validate
-from shemas.schemas import get_user, create_user, update_user, register_user
+from schemas.schemas import get_user, create_user, update_user, register_user
 
 BASE_URL = "https://reqres.in"
 
