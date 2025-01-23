@@ -1,6 +1,7 @@
+import json
 import requests
 from jsonschema import validate
-from schemas import get_user, create_user, update_user, register_user
+from shemas.schemas import get_user, create_user, update_user, register_user
 
 BASE_URL = "https://reqres.in"
 
@@ -39,6 +40,8 @@ def test_register_user_unsuccessful():
     payload = {"email": "eve.holt@reqres.in"}
     response = requests.post(f"{BASE_URL}/api/register", json=payload)
     assert response.status_code == 400
+    body = json.loads(response.text)
+    assert body == {"error": "Missing password"}
 
 
 # PUT test
